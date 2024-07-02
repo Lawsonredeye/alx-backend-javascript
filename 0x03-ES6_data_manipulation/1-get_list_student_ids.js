@@ -1,9 +1,7 @@
-function getStudentIds(args) {
+export default function getStudentIds(args) {
+  let arr = [];
   if (args instanceof Array) {
-    const new_data = args.map((value) => {
-        return value.id;
-    })
-  } else {
-    return [];
+    arr = args.map((value) => value.id);
   }
+  return arr;
 }
