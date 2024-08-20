@@ -1,9 +1,8 @@
 const process = require('process');
 
-const msg = 'Welcome to Holberton School, what is your name?';
+const msg = 'Welcome to Holberton School, what is your name?\n';
 
 process.stdout.write(msg);
-process.stdout.write('\n');
 process.stdin.on('readable', () => {
   const chunk = process.stdin.read();
   if (chunk !== null) {
