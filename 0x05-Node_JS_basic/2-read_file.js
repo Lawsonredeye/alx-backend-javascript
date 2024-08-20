@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { parse } = require('csv-parse');
+// const parse = require('csv-parse');
 
 /**
  * countStudent - counts the number of students and logs to the console
@@ -9,16 +9,37 @@ const { parse } = require('csv-parse');
 
 function countStudent(path) {
   try {
-    fs.readFileSync(path, 'utf-8', (err) => {
-      if (err) {
-        throw new Error('Cannot load the database');
-      } else {
-        fs.createReadStream(path).pipe(parse({ delimeter: ',', from_line: 2 }))
-          .on('data', (row) => {
-            console.log(row);
-          });
+    const data = fs.readFileSync(path, 'utf8');
+    const rows = data.split('\n').filter((row) => row.trim() !== '');
+
+    if (rows.length === 0) {
+      throw new Error('Cannot load the database');
+    }
+
+    const header = rows.shift();
+    const studentsByField = {};
+
+    for (const row of rows) {
+      const [firstname, lastname, age, field] = row.split(',');
+
+      if (!field || !firstname) {
+        // eslint-disable-next-line no-continue
+        continue;
       }
-    });
+
+      if (!studentsByField[field]) {
+        studentsByField[field] = [];
+      }
+      studentsByField[field].push(firstname);
+    }
+
+    const totalStudents = Object.values(studentsByField)
+      .reduce((acc, students) => acc + students.length, 0);
+    console.log(`Number of students: ${totalStudents}`);
+
+    for (const [field, students] of Object.entries(studentsByField)) {
+      console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
+    }
   } catch (error) {
     throw new Error('Cannot load the database');
   }
