@@ -1,8 +1,8 @@
-const { createServer } = require('node:http');
+const http = require('node:http');
 
 const port = 1245;
 
-const app = createServer((req, res) => {
+const app = http.createServer((req, res) => {
   res.statusCode = 200;
   res.end('Hello Holberton School!');
 });
