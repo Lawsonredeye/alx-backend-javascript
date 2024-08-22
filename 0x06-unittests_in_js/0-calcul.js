@@ -3,6 +3,4 @@ function calculateNumber(a, b) {
 	return sum;
 }
 
-console.log(calculateNumber(1.5, 3.7));
-
 module.exports = calculateNumber;
