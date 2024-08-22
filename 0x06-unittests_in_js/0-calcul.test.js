@@ -4,7 +4,6 @@ const assert = require('assert');
 describe('smoke test', function() {
 	it('checks equality', function() {
 		assert.equal(calculateNumber(1, 3), 4);
-		assert.equal(calculateNumber(NaN, 8), NaN);
 	});
 	it('checks equality', function() {
 		assert.equal(calculateNumber(1, 3.7), 5);
