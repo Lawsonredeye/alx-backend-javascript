@@ -1,7 +1,7 @@
 {
   "type": "commonjs",
   "scripts": {
-    "test": "mocha *.test.js"
+    "test": "mocha"
   },
   "dependencies": {
     "chai": "^5.1.1",

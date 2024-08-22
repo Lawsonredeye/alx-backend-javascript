@@ -3,7 +3,7 @@ const assert = require('assert');
 
 describe('Test for mathematical operations', function() {
   it('#sums', function() {
-    assert.equal(calculateNumber('SUM', 1, 2), 3);
+    assert.equal(calculateNumber('SUM', 1.4, 4.5), 6);
   });
   it('Sums float nums', function() {
     assert.equal(calculateNumber('SUM', 1.4, 1.4), 2);
