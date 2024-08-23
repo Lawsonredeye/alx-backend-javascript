@@ -1,6 +1,5 @@
-// import { expect } from 'chai';
-// import { calculateNumber } from './2-calcul_chai.js';
-const { expect } = require('chai');
+import chai from 'chai';
+const { expect } = chai;
 const calculateNumber = require('./2-calcul_chai.js');
 
 // expect(calculateNumber('SUM', 1, 2)).to.equal(3);
