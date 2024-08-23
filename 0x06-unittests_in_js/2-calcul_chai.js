@@ -13,3 +13,4 @@ function calculateNumber(type, a, b) {
 }
 
 module.exports = calculateNumber;
+console.log(calculateNumber("DIVIDE", 1.4, 4.5))
